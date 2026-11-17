@@ -1,0 +1,22 @@
+name: rust-evm
+
+services:
+  rust-evm:
+    image: rust-evm:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    stop_signal: SIGTERM
+    stop_grace_period: 2m
+    environment:
+      RUST_LOG: ${RUST_LOG:-info}
+    ports:
+      - "${RUSTEVM_BIND_ADDRESS:-127.0.0.1}:${RUSTEVM_HTTP_PORT:-8545}:8545"
+    volumes:
+      - rust-evm-data:/data
+
+volumes:
+  rust-evm-data:
+    name: rust-evm-data
+    driver: local
