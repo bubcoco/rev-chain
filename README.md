@@ -40,3 +40,23 @@ docker run --rm -p 8545:8545 -v rust-evm-data:/data rust-evm:local
 
 The container uses the same genesis and local development engine, exposes
 HTTP JSON-RPC on `0.0.0.0:8545`, and stores node data in `/data`.
+
+For Compose-managed startup and persistent chain data:
+
+```sh
+./start-node.sh
+```
+
+By default, JSON-RPC is published only on `127.0.0.1:8545`. Set
+`RUSTEVM_BIND_ADDRESS=0.0.0.0` to expose it on all host interfaces, or set
+`RUSTEVM_HTTP_PORT` to change the host port.
+
+To stop the node and permanently clear its chain data:
+
+```sh
+./reset.sh
+```
+
+The reset script requires typing `reset` before it removes the Compose volume.
+For a normal stop that preserves chain data, run
+`docker compose -f docker-compose.yml down`.
