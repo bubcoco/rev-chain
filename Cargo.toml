@@ -7,12 +7,18 @@ publish = false
 
 [dependencies]
 alloy-genesis = { version = "2.5.0", default-features = false }
+alloy-consensus = "2.6.1"
+alloy-eips = "2.6.1"
+alloy-primitives = "1.7.3"
+evm2 = { git = "https://github.com/alloy-rs/evm2", rev = "66687c18b34d3bdbb899f5eb7605070615c03475", default-features = false, features = ["block"] }
 eyre = "0.6"
 futures-util = "0.3"
 reth-chainspec = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
 reth-engine-local = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
+reth-evm = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
 reth-ethereum = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff", features = ["cli", "node"] }
 reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
+reth-storage-api = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
 reth-transaction-pool = { git = "https://github.com/paradigmxyz/reth", rev = "5aa1de6209144cf839a7bbf1a3b40e4664685bff" }
 serde_json = "1"
 tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread", "sync", "time"] }
